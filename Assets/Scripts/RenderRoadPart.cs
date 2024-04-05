@@ -10,14 +10,14 @@ public class RenderRoadPart : MonoBehaviour
     public float platformSize;
     void Start()
     {
-        platformSize = gameObject.GetComponent<Collider>().bounds.size.x;
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            float z = currentPlatform.transform.position.z + platformSize * 2 -1;
+            float z = currentPlatform.transform.position.z + platformSize;
 
             movablePlatform.transform.position = new Vector3(movablePlatform.transform.position.x, movablePlatform.transform.position.y, z);
         }

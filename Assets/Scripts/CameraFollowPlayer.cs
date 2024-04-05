@@ -10,7 +10,7 @@ public class CameraFollowPlayer : MonoBehaviour
 
     void Start()
     {
-        cameraOffset = new Vector3(0, 8, -12);
+        //cameraOffset = new Vector3(0, 8, -12);
     }
     // Update is called once per frame
     void Update()

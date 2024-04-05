@@ -54,9 +54,12 @@ public class Player : MonoBehaviour
         Vector2 input = moveAction.ReadValue<Vector2>().normalized;
         currentInputVector = Vector2.SmoothDamp(currentInputVector, input, ref smoothInputVelocity, 0.3f);
         Vector3 move = new Vector3(currentInputVector.x * speed, charController.velocity.y, currentInputVector.y * speed);
-
-
-        if (moveAction.IsPressed() && (input.x != 0 || input.y != 0))
+   
+        if (moveAction.IsPressed() && input.y <= -0.2)
+        {
+            return;
+        }
+        if (moveAction.IsPressed() && (input.x != 0 || input.y >= -0.2))
         {
             charController.Move(move * Time.deltaTime);
             if (charController.velocity != Vector3.zero)
